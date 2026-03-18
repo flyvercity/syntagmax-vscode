@@ -1,3 +1,6 @@
+# VS Code
+*.vsix
+
 # Node
 node_modules
 out

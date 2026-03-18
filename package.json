@@ -2,6 +2,7 @@
     "name": "syntagmax-vscode",
     "displayName": "Syntagmax",
     "description": "VS Code extension for Syntagmax DSL",
+    "repository": "https://github.com/scartill/syntagmax-vscode",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.90.0"
@@ -14,17 +15,27 @@
     ],
     "main": "./out/extension.js",
     "contributes": {
-        "languages": [{
-            "id": "syntagmax",
-            "aliases": ["Syntagmax", "syntagmax"],
-            "extensions": [".stmx", ".syntagmax"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "syntagmax",
-            "scopeName": "source.syntagmax",
-            "path": "./syntagmax.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "syntagmax",
+                "aliases": [
+                    "Syntagmax",
+                    "syntagmax"
+                ],
+                "extensions": [
+                    ".stmx",
+                    ".syntagmax"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "syntagmax",
+                "scopeName": "source.syntagmax",
+                "path": "./syntagmax.tmLanguage.json"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
