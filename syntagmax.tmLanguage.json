@@ -11,7 +11,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.syntagmax",
-                    "match": "\\b(artifact|attribute|is)\\b"
+                    "match": "\\b(artifact|attribute|is|trace|from|to|or)\\b"
                 },
                 {
                     "name": "keyword.other.syntagmax",
