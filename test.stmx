@@ -1,0 +1,10 @@
+artifact REQ:
+    attribute id is mandatory string
+    attribute contents is mandatory string
+    attribute desc is optional string
+    attribute pid is optional string
+    attribute input is optional string
+    attribute output is optional string
+
+trace from SRC to REQ is mandatory
+trace from TEST to REQ or SRC is mandatory
