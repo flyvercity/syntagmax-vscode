@@ -31,7 +31,7 @@ start: (artifact | trace | _NL)+
 artifact: ARTIFACT name ":" _NL _INDENT (rule | _NL)* _DEDENT
 rule: "attribute" name "is" PRESENCE [MULTIPLE] type _NL
 
-trace: "trace" "from" name "to" target_list "is" PRESENCE _NL
+trace: "trace" "from" name "to" target_list "is" PRESENCE ["via" TRACE_MODE] _NL
 target_list: name ("or" name)*
 
 ?type: "string" -> type_string
@@ -46,6 +46,7 @@ ARTIFACT: "artifact"
 MULTIPLE: "multiple"
 ?name: WORD
 PRESENCE: "mandatory" | "optional"
+TRACE_MODE: "git" | "timestamp"
 ?value: ESCAPED_STRING | WORD
 
 %import common.WORD
@@ -114,6 +115,9 @@ def completions(ls, params: CompletionParams):
         CompletionItem(label="from"),
         CompletionItem(label="to"),
         CompletionItem(label="or"),
+        CompletionItem(label="via"),
+        CompletionItem(label="git"),
+        CompletionItem(label="timestamp"),
     ]
     return CompletionList(is_incomplete=False, items=items)
 

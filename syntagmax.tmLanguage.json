@@ -11,11 +11,11 @@
             "patterns": [
                 {
                     "name": "keyword.control.syntagmax",
-                    "match": "\\b(artifact|attribute|is|trace|from|to|or)\\b"
+                    "match": "\\b(artifact|attribute|is|trace|from|to|or|via)\\b"
                 },
                 {
                     "name": "keyword.other.syntagmax",
-                    "match": "\\b(mandatory|optional|multiple)\\b"
+                    "match": "\\b(mandatory|optional|multiple|git|timestamp)\\b"
                 },
                 {
                     "name": "support.type.syntagmax",
