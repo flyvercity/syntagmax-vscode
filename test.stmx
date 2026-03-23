@@ -1,9 +1,9 @@
 artifact SRC:
-    attribute id is mandatory string
+    id is string
     attribute title is mandatory string
 
 artifact REQ:
-    attribute id is mandatory string
+    id is string
     attribute contents is mandatory string
     attribute desc is optional string
     attribute pid is optional string

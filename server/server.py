@@ -12,6 +12,7 @@ from lsprotocol.types import (
     DidOpenTextDocumentParams,
     DidChangeTextDocumentParams,
 )
+from pathlib import Path
 from lark import Lark
 from lark.indenter import Indenter
 
@@ -27,40 +28,10 @@ class SyntagmaxIndenter(Indenter):
     tab_len = 4
 
 
-GRAMMAR = r"""
-start: (artifact | trace | _NL)+
-
-artifact: ARTIFACT name ":" _NL _INDENT (rule | _NL)* _DEDENT
-rule: "attribute" name "is" PRESENCE [MULTIPLE] type _NL
-
-trace: "trace" "from" name "to" target_list "is" PRESENCE ["via" TRACE_MODE] _NL
-target_list: name ("or" name)*
-
-?type: "string" -> type_string
-     | "integer" -> type_integer
-     | "boolean" -> type_boolean
-     | "reference" to_parent? -> type_reference
-     | "enum" "[" value ("," value)* "]" -> type_enum
-
-to_parent: "to" "parent"
-
-ARTIFACT: "artifact"
-MULTIPLE: "multiple"
-?name: WORD
-PRESENCE: "mandatory" | "optional"
-TRACE_MODE: "commit" | "timestamp"
-?value: ESCAPED_STRING | WORD
-
-%import common.WORD
-%import common.ESCAPED_STRING
-%import common.WS_INLINE
-%import common.SH_COMMENT
-%ignore WS_INLINE
-%ignore SH_COMMENT
-
-%declare _INDENT _DEDENT
-_NL: /(\r?\n[\t ]*)+/
-"""
+# Load grammar from file
+GRAMMAR_PATH = Path(__file__).parent / "syntagmax.lark"
+with open(GRAMMAR_PATH, "r") as f:
+    GRAMMAR = f.read()
 
 parser = Lark(
     GRAMMAR, parser="lalr", postlex=SyntagmaxIndenter(), propagate_positions=True
@@ -101,6 +72,9 @@ def completions(ls, params: CompletionParams):
     items = [
         CompletionItem(label="artifact"),
         CompletionItem(label="attribute"),
+        CompletionItem(label="id"),
+        CompletionItem(label="is"),
+        CompletionItem(label="as"),
         CompletionItem(label="mandatory"),
         CompletionItem(label="optional"),
         CompletionItem(label="multiple"),

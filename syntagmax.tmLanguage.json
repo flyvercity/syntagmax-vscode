@@ -39,7 +39,7 @@
                 },
                 {
                     "name": "keyword.control.syntagmax",
-                    "match": "\\b(artifact|attribute|is|trace|from|to|or|via)\\b"
+                    "match": "\\b(artifact|attribute|is|trace|from|to|or|via|id|as)\\b"
                 },
                 {
                     "name": "keyword.other.syntagmax",
