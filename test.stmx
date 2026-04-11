@@ -1,18 +1,14 @@
 artifact SRC:
-    id is string
-    attribute title is mandatory string
+    id is string as "{atype}/{num}"
+    attribute title is mandatory string if anchor
+    attribute desc is optional string if not anchor
 
 artifact REQ:
-    id is string
+    id is string as "{atype}/{num:5}"
     attribute contents is mandatory string
-    attribute desc is optional string
-    attribute pid is optional string
-    attribute input is optional string
-    attribute output is optional string
     attribute tags is optional multiple string
-    attribute parent is optional reference to parent
-    attribute source is mandatory reference
+    attribute parent is optional reference to parent if not anchor
 
-trace from SRC to REQ is mandatory
-trace from TEST to REQ or SRC is mandatory
-trace from TEST to REQ or SRC is mandatory via commit
+trace from SRC to REQ is mandatory if anchor
+trace from SRC to REQ or OTHER is optional if not anchor
+trace from TEST to REQ or SRC is mandatory via commit if anchor
