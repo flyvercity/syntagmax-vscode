@@ -17,6 +17,9 @@
             }
         },
         {
+            "include": "#placeholders"
+        },
+        {
             "include": "#keywords"
         },
         {
@@ -27,6 +30,18 @@
         }
     ],
     "repository": {
+        "placeholders": {
+            "patterns": [
+                {
+                    "name": "variable.other.placeholder.syntagmax",
+                    "match": "\\{(atype|num(:\\d+)?)\\}"
+                },
+                {
+                    "name": "invalid.illegal.placeholder.syntagmax",
+                    "match": "\\{[^}]+\\}"
+                }
+            ]
+        },
         "keywords": {
             "patterns": [
                 {
@@ -39,7 +54,7 @@
                 },
                 {
                     "name": "keyword.control.syntagmax",
-                    "match": "\\b(artifact|attribute|is|trace|from|to|or|via|id|as)\\b"
+                    "match": "\\b(artifact|attribute|is|trace|from|to|or|via|id|as|if|not)\\b"
                 },
                 {
                     "name": "keyword.other.syntagmax",
