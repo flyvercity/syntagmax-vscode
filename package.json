@@ -1,9 +1,11 @@
 {
   "name": "syntagmax-vscode",
   "displayName": "Syntagmax",
+  "publisher": "scartill",
   "description": "VS Code extension for Syntagmax DSL",
+  "icon": "images/syntagmax_64x64.png",
   "repository": "https://github.com/scartill/syntagmax-vscode",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "engines": {
     "vscode": "^1.90.0"
   },
