@@ -91,6 +91,8 @@ def completions(ls, params: CompletionParams):
         CompletionItem(label="via"),
         CompletionItem(label="commit"),
         CompletionItem(label="timestamp"),
+        CompletionItem(label="if"),
+        CompletionItem(label="not"),
     ]
     return CompletionList(is_incomplete=False, items=items)
 
