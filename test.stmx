@@ -1,7 +1,8 @@
-artifact SRC:
+artifact MY-SRC:
     id is string as "{atype}/{num}"
-    attribute title is mandatory string if anchor
+    attribute title-name is mandatory string if anchor
     attribute desc is optional string if not anchor
+    attribute active is mandatory boolean [true: "Yes", false: "No"]
 
 artifact REQ:
     id is string as "{atype}/{num:5}"
@@ -9,6 +10,6 @@ artifact REQ:
     attribute tags is optional multiple string
     attribute parent is optional reference to parent if not anchor
 
-trace from SRC to REQ is mandatory if anchor
-trace from SRC to REQ or OTHER is optional if not anchor
-trace from TEST to REQ or SRC is mandatory via commit if anchor
+trace from MY-SRC to REQ is mandatory if anchor
+trace from MY-SRC to REQ or OTHER is optional if not anchor
+trace from TEST to REQ or MY-SRC is mandatory via commit if anchor

@@ -5,7 +5,7 @@
   "description": "VS Code extension for Syntagmax DSL",
   "icon": "images/syntagmax_64x64.png",
   "repository": "https://github.com/scartill/syntagmax-vscode",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -41,10 +41,12 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./"
   },
+  "dependencies": {
+    "vscode-languageclient": "^9.x"
+  },
   "devDependencies": {
     "@types/node": "^20.x",
     "@types/vscode": "^1.90.0",
-    "typescript": "^5.x",
-    "vscode-languageclient": "^9.x"
+    "typescript": "^5.x"
   }
 }

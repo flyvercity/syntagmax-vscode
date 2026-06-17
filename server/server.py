@@ -34,7 +34,10 @@ with open(GRAMMAR_PATH, "r") as f:
     GRAMMAR = f.read()
 
 parser = Lark(
-    GRAMMAR, parser="lalr", postlex=SyntagmaxIndenter(), propagate_positions=True
+    GRAMMAR,
+    parser="lalr",
+    postlex=SyntagmaxIndenter(),
+    propagate_positions=True,
 )
 
 
@@ -93,6 +96,8 @@ def completions(ls, params: CompletionParams):
         CompletionItem(label="timestamp"),
         CompletionItem(label="if"),
         CompletionItem(label="not"),
+        CompletionItem(label="true"),
+        CompletionItem(label="false"),
     ]
     return CompletionList(is_incomplete=False, items=items)
 

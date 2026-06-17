@@ -1,0 +1,11 @@
+.venv/**
+.git/**
+.github/**
+.agent/**
+.vscode/**
+.ruff_cache/**
+tsconfig.json
+src/**
+test.stmx
+test_parser.py
+*.vsix
